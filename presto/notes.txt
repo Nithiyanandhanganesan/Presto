@@ -1,0 +1,13 @@
+Apache Presto is a distributed parallel query execution engine, optimized for low latency and interactive query analysis. 
+Presto runs queries easily and scales without down time even from gigabytes to petabytes.
+
+Component :
+================
+
+Client (Presto CLI) submits SQL statements to a coordinator to get the result.
+
+Coordinator is a master daemon. The coordinator initially parses the SQL queries then analyzes and plans for the query execution. 
+Scheduler performs pipeline execution, assigns work to the closest node and monitors progress.
+
+Storage plugins are called as connectors. Hive, HBase, MySQL, Cassandra and many more act as a connector; otherwise you can also implement a custom one. 
+The connector provides metadata and data for queries. The coordinator uses the connector to get metadata for building a query plan.
